@@ -1,0 +1,17 @@
+version: '3.1'
+services:
+  userDb:
+    image: postgres
+    ports:
+      - "5433:5432"
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=greetingUser
+  adminer: #web client for postgres
+    image: adminer
+    restart: always
+    depends_on:
+      - userDb
+    ports:
+      - 8086:8086

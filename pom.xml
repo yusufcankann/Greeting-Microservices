@@ -9,6 +9,7 @@
         <module>adminService</module>
         <module>discoveryServer</module>
         <module>apiGateway</module>
+        <module>authService</module>
     </modules>
 
     <groupId>org.greeting.greetingMicroservices</groupId>

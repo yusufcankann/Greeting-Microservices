@@ -34,7 +34,7 @@ public class CustomAuthorizationFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
 
-        if(request.getServletPath().equals("/api/login") || request.getServletPath().equals("/api/token/refresh")){
+        if(request.getServletPath().equals("/api/auth/login") || request.getServletPath().equals("/api/auth/token/refresh")){
             filterChain.doFilter(request,response);
         }else{
             /*this code block looks roles and spring sets what they can do*/

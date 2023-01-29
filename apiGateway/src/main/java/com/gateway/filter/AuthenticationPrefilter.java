@@ -44,7 +44,9 @@ public class AuthenticationPrefilter extends AbstractGatewayFilterFactory<Authen
             String bearerToken = request.getHeaders().getFirst(HttpHeaders.AUTHORIZATION);
             log.info("Bearer Token: " + bearerToken);
 
-            if( !( request.getURI().getPath().contains("/api/login") || request.getURI().getPath().contains("/api/token/refresh") ) ) {
+
+            if( !( request.getURI().getPath().contains("/api/login") || request.getURI().getPath().contains("/api/auth/token/refresh") ) ) {
+
                 return webClientBuilder.build().get()
                         .uri("lb://authService/api/auth/token/validate")
                         .header(HttpHeaders.AUTHORIZATION, bearerToken)
